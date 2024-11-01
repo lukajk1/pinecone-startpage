@@ -1,0 +1,76 @@
+body {
+    width: 400px;
+    margin: auto;
+    margin-top: 20vh;
+    user-select: none;
+    font-family: monospace;
+    background-color: #303030;
+    color: #f0f0f0;
+}
+
+a {
+    transition: color 0.2s, background-color 0.2s;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    font-size: 18px;
+    padding-bottom: 30px;
+}
+
+.link-label a, .link-label a:visited {
+    padding: 2px;
+    color: #f0f0f0;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: #f0f0f0;
+    color: #303030;
+}
+
+img {
+    pointer-events: none;
+}
+
+#edit {
+    float: right;
+    margin-top: 25px;
+}
+
+.link-label {
+    float: left;
+}
+
+.edit-options {
+    float: right;
+}
+
+.edit-options a {
+    position: relative;
+    top: -0px;
+}
+
+.options-style {
+    color: gray;
+    font-size: 16px;
+    text-decoration: none;
+}
+.options-style:hover {
+    text-decoration: underline;
+}
+
+input {
+    background-color: #303030;
+    color: white;
+    padding: 5px;
+}
+
+#list-edit-mode {
+    padding: 30px 0;
+    border: 1px solid white;
+
+}
