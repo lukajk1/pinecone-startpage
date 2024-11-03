@@ -7,11 +7,19 @@ body {
     background-color: #303030;
     color: #f0f0f0;
     overflow: hidden;
+}
 
+/* Default Gradient (for consistency) */
+.gradient-day {
+    background: linear-gradient(45deg, #3b446b, #34447e);
+    animation: gradient 12s ease infinite;
+    background-size: 300% 300%;
+}
+
+.gradient-night {
     background: linear-gradient(45deg, #384469, #303030, #1d1d1d);
     animation: gradient 12s ease infinite;
     background-size: 300% 300%;
-    height: 100vh;
 }
 
 @keyframes gradient {
@@ -76,7 +84,7 @@ img {
 }
 
 .options-style {
-    color: gray;
+    color: #a3a3a3;
     font-size: 16px;
     text-decoration: none;
 }

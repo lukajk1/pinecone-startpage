@@ -41,14 +41,17 @@
             window.onload = function () {
                 const hour = new Date().getHours();
 
-                if (hour >= 6 && hour < 18) { // hours are just 1-24
-                    document.body.style.background = "linear-gradient(45deg, #546387, #34447e)";
+                if (hour >= 6 && hour < 1) {
+                    document.body.classList.add('gradient-day');
+                    document.body.classList.remove('gradient-night');
                 }
                 else {
-                    document.body.style.background = "linear-gradient(45deg, #384469, #303030, #1d1d1d)";
+                    document.body.classList.add('gradient-night');
+                    document.body.classList.remove('gradient-day');
                 }
             }
         </script>
+
 
         <script src="js/list-item.js"></script>
         <script src="js/main.js"></script>
