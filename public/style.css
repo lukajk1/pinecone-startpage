@@ -6,7 +6,28 @@ body {
     font-family: monospace;
     background-color: #303030;
     color: #f0f0f0;
+    overflow: hidden;
+
+    background: linear-gradient(45deg, #384469, #303030, #1d1d1d);
+    animation: gradient 12s ease infinite;
+    background-size: 300% 300%;
+    height: 100vh;
 }
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 
 a {
     transition: color 0.2s, background-color 0.2s;
