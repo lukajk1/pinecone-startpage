@@ -48,7 +48,7 @@ class ListItem {
     initEditOptions() {
         const editOptionsHTML = `
             <span class='edit-options' style="display:none; position: relative; top: -40px;">
-                <a href='#' class='options-style'id='delete'>[ - ]</a>
+                <a href='#' class='options-style'id='delete'>[-]</a>
             </span>
         `;
 
@@ -101,7 +101,22 @@ class ListItem {
     }
 
     delete() {
-        this.li.remove();
+        if (
+            (this.siteTitle === "" && this.siteURL === "")
+        ) {
+            this.li.remove();
+        }
+        else {
+            const confirmed = confirm("Confirm delete?");
+
+            if (confirmed) {
+
+                this.li.remove();
+            }
+            else {
+                return; 
+            }
+        }
     }
 }
 

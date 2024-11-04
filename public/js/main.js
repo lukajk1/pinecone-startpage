@@ -36,7 +36,7 @@ function toggleEditMode() {
 }
 
 function addNewLink() {
-    links.push(new ListItem("unnamed link", ""));
+    links.push(new ListItem("", ""));
     links[links.length - 1].setEditMode(true);
 }
 
