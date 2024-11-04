@@ -11,13 +11,13 @@ body {
 
 /* Default Gradient (for consistency) */
 .gradient-day {
-    background: linear-gradient(45deg, #3b446b, #34447e);
+    background: linear-gradient(45deg, #384b78, #34447e);
     animation: gradient 12s ease infinite;
     background-size: 300% 300%;
 }
 
 .gradient-night {
-    background: linear-gradient(45deg, #384469, #303030, #1d1d1d);
+    background: linear-gradient(45deg, #353944, #303030, #1d1d1d);
     animation: gradient 12s ease infinite;
     background-size: 300% 300%;
 }
@@ -72,6 +72,10 @@ img {
 
 .link-label {
     float: left;
+}
+
+.link-label a:hover {
+    color: darkslategray;
 }
 
 .edit-options {

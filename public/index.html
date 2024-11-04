@@ -19,21 +19,32 @@
         <ul id="main-list">
             <li id="datetime"></li>
 
-            <li>
-                <span class="link-label"><a href="#">goodreads</a></span>
+            <!--<li> // an example of how the html should be built
+                <span class="link-label">
+                    <a href="https://github.com/lukajk1">mysite</a>
+                </span>        
+                <span class="input-fields" style="display:none;">
+                    <input type="text" name="siteName" size="10" placeholder="site name" autocomplete="off" />
+                    <br>
+                    <input type="text" name="siteURL" size="10" placeholder="site url" autocomplete="off" />
+                </span>
                 <span class='edit-options'>
                     <a href='#' class='options-style'>archive</a>
                     <a href='#' class='options-style'>edit</a>
                     <a href='#' class='options-style'>delete</a>
                 </span>
-            </li>
+            </li>-->
 
 
 
         </ul>
 
         <ul>
-            <li style="padding-top: 25px;" id="addNewLink"><center><a href="#" class="options-style">add new link</a></center></li>
+            <li style="padding-top: 25px;" id="addNewLink">
+                <center>
+                    <a href="#" class="options-style">[ + ]</a>
+                </center>
+            </li>
         </ul>
 
         <script src="js/update-date-time.js"></script>
@@ -41,7 +52,7 @@
             window.onload = function () {
                 const hour = new Date().getHours();
 
-                if (hour >= 6 && hour < 1) {
+                if (hour >= 6 && hour < 18) {
                     document.body.classList.add('gradient-day');
                     document.body.classList.remove('gradient-night');
                 }
