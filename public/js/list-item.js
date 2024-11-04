@@ -101,6 +101,7 @@ class ListItem {
     }
 
     delete() {
+<<<<<<< HEAD
         if (
             (this.siteTitle === "" && this.siteURL === "")
         ) {
@@ -116,6 +117,16 @@ class ListItem {
             else {
                 return; 
             }
+=======
+        const confirmed = confirm("Confirm delete?");
+
+        if (confirmed) {
+
+            this.li.remove();
+        }
+        else {
+            return; 
+>>>>>>> 8e15f5539d9bc8e5ff0864f07e4eec37f49068c9
         }
     }
 }
