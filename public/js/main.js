@@ -12,7 +12,6 @@ function initialize() {
     addNewLinkElement.addEventListener('click', addNewLink);
 
     const mainList = document.getElementById('main-list');
-    const myStartpage = new startpage(mainList);
 
 
     links.push(new ListItem("youtube", "https://www.youtube.com/"));
