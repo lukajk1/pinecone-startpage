@@ -39,7 +39,7 @@ class ListItem {
             <span class="input-fields" style="display:none;">
                 <input type="text" name="siteName" size="24" placeholder="site name" autocomplete="off" />
                 <br>
-                <input type="text" name="siteURL" size="24" placeholder="site url" autocomplete="off" />
+                <input type="text" class="input-bottom" name="siteURL" size="24" placeholder="site url" autocomplete="off" />
             </span>
         `;
         this.li.insertAdjacentHTML('beforeend', inputFieldsHTML);
@@ -47,19 +47,11 @@ class ListItem {
 
     initEditOptions() {
         const editOptionsHTML = `
-            <span class='edit-options' style="display:none; position: relative; top: -40px;">
+            <span class='edit-options' style="display:none; position: relative; top: -48px;">
                 <a href='#' class='options-style'id='delete'>[-]</a>
             </span>
         `;
 
-        // older version
-        //const editOptionsHTML = `
-        //    <span class='edit-options' style="display:none;">
-        //        <a href='#' class='options-style'>archive</a>
-        //        <a href='#' class='options-style' id='save'>edit</a>
-        //        <a href='#' class='options-style' id='delete'>delete</a>
-        //    </span>
-        //`;
         this.li.insertAdjacentHTML('beforeend', editOptionsHTML);
 
         //this.li.querySelector('#save').addEventListener('click', () => this.toggleEditMode());
@@ -76,6 +68,15 @@ class ListItem {
     }
 
     setEditMode(value) {
+        // this doesn't work and too lazy to fix
+        //if (!value) {
+        //    const siteNameInput = this.inputFields.querySelector('input[name="siteName"]');
+        //    const siteURLInput = this.inputFields.querySelector('input[name="siteURL"]');
+        //    if (siteNameInput === "" && siteURLInput === "") {
+        //        this.delete();
+        //    }
+        //}
+
         this.isEditMode = value;
         this.setFieldsDisplay(this.isEditMode);
         this.editOptions.style.display = this.isEditMode ? 'block' : 'none';

@@ -21,10 +21,10 @@ function initialize() {
 function toggleEditMode() {
     isEditMode = !isEditMode;
     if (isEditMode) {
-        edit.textContent = 'save';
+        edit.textContent = '[save]';
     }
     else {
-        edit.textContent = 'edit';
+        edit.textContent = '[edit]';
     }
 
     links.forEach(item => {
@@ -41,5 +41,4 @@ function addNewLink() {
 
 document.addEventListener('DOMContentLoaded', () => {
     initialize();
-
 });
