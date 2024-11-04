@@ -101,7 +101,15 @@ class ListItem {
     }
 
     delete() {
-        this.li.remove();
+        const confirmed = confirm("Confirm delete?");
+
+        if (confirmed) {
+
+            this.li.remove();
+        }
+        else {
+            return; 
+        }
     }
 }
 
