@@ -109,7 +109,7 @@ class ListItem {
         else {
             const confirmed = confirm("Confirm delete?");
 
-            if (confirmed) {
+        if (confirmed) {
 
                 this.li.remove();
             }
