@@ -1,7 +1,8 @@
 .vs/
 .vscode/
 _dev/
-
 node_modules/
-*.lnk	
 
+
+*.lnk	
+**/links.json
