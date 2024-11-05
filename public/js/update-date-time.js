@@ -9,7 +9,7 @@ function updateDateTime() {
     const dateTimeString = `${timeString} <br> ${dateString}`;
 
     document.getElementById('datetime').innerHTML = dateTimeString;
-    document.title = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }).toLowerCase();
+    document.title = "it's " + now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }).toLowerCase();
 
     setTimeout(updateDateTime, 1000);
 }

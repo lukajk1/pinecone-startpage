@@ -1,6 +1,6 @@
 :root {
     --primary-txt-color: #f0f0f0;
-    --secondary-txt-color: #bdbdbd;
+    --secondary-txt-color: rgba(255, 255, 255, 0.4);
     --dark-color: #303030;
 }
 
@@ -15,8 +15,8 @@ body {
 }
 
 .gradient-day {
-    background: linear-gradient(45deg, #384b78, #34447e);
-    animation: gradient 12s ease infinite;
+    background: linear-gradient(45deg, #565066, #34447e);
+    animation: gradient 14s ease infinite;
     background-size: 300% 300%;
 }
 
@@ -39,7 +39,6 @@ body {
         background-position: 0% 50%;
     }
 }
-
 
 a {
     transition: color 0.2s, background-color 0.2s;
@@ -67,7 +66,7 @@ a:hover {
 
 #edit {
     float: right;
-    margin-top: 25px;
+    margin-top: 23px;
 }
 
 .link-label {
@@ -113,7 +112,8 @@ input[type="text"] {
     top: -10px;
 }
 
-#list-edit-mode {
-    padding: 30px 0;
-    border: 1px solid var(--primary-txt-color);
+.theme-selector {
+    position: absolute;
+    right: 10px;
+    top: 0px;
 }

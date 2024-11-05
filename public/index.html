@@ -4,6 +4,17 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+
+
+        <div class="theme-selector">
+            <a href="#" id="theme-button" class="options-style" style="display: none;">[theme]</a> <!-- fix at some point.. or don't. works decent without the dropdown'-->
+            <ul id="theme-options">
+                <a href="#" class="options-style" id="auto-button">> [time-based]</a>
+                <a href="#" class="options-style" id="day-button">[day]</a>
+                <a href="#" class="options-style" id="night-button">[night]</a>
+            </ul>
+        </div>
+
         <pre>
       __     
    _    )⌐   
@@ -18,51 +29,78 @@
 
         <ul id="main-list">
             <li id="datetime"></li>
-
-            <!--<li> // an example of how the html should be built
-                <span class="link-label">
-                    <a href="https://github.com/lukajk1">mysite</a>
-                </span>        
-                <span class="input-fields" style="display:none;">
-                    <input type="text" name="siteName" size="10" placeholder="site name" autocomplete="off" />
-                    <br>
-                    <input type="text" name="siteURL" size="10" placeholder="site url" autocomplete="off" />
-                </span>
-                <span class='edit-options'>
-                    <a href='#' class='options-style'>archive</a>
-                    <a href='#' class='options-style'>edit</a>
-                    <a href='#' class='options-style'>delete</a>
-                </span>
-            </li>-->
-
-
-
         </ul>
 
         <ul>
-            <li style="padding-top: 25px;" id="addNewLink">
+            <li style="padding-top: 10px;">
                 <center>
-                    <a href="#" class="options-style">[+]</a>
+                    <a href="#" id="addNewLink" class="options-style">[+]</a>
                 </center>
             </li>
         </ul>
 
         <script src="js/update-date-time.js"></script>
         <script>
+            // needs a server endpoint to save theme preference
+            let themeSetting = 0; // 0 for auto, 1 for day, 2 for night
+            let autoButton = null;
+            let dayButton = null;
+            let nightButton = null;
+
             window.onload = function () {
                 const hour = new Date().getHours();
 
+                autoButton = document.querySelector('#auto-button');
+                dayButton = document.querySelector('#day-button');
+                nightButton = document.querySelector('#night-button');
+
                 if (hour >= 6 && hour < 18) {
+                    setThemeDay(true);
+                }
+                else {
+                    setThemeDay(false);
+                }
+
+
+                //document.querySelector('#theme-button').addEventListener('mouseenter', showThemeOptions);
+                //document.querySelector('.theme-selector').addEventListener('mouseleave', hideThemeOptions);
+                dayButton.addEventListener('click', () => setThemeDay(true));
+                nightButton.addEventListener('click', () => setThemeDay(false));
+
+            }
+
+            function setThemeDay(value) {
+                autoButton.textContent = "[time-based]";
+                dayButton.textContent = "[day]";
+                nightButton.textContent = "[night]";
+
+
+                if (value) {
                     document.body.classList.add('gradient-day');
                     document.body.classList.remove('gradient-night');
+
+                    dayButton.textContent = ">[day]";
                 }
                 else {
                     document.body.classList.add('gradient-night');
                     document.body.classList.remove('gradient-day');
+
+                    nightButton.textContent = ">[night]";
                 }
+            }
+
+            function showThemeOptions() {
+                document.querySelector('#theme-options').style.display = 'block';
+            }
+
+            function hideThemeOptions() {
+                document.querySelector('#theme-options').style.display = 'none';
             }
         </script>
 
+        <script>
+            // animate the ascii art? 
+        </script>
 
         <script src="js/list-item.js"></script>
         <script src="js/main.js"></script>
