@@ -5,17 +5,17 @@
     </head>
     <body>
 
+        <div id="global-container">
+            <div class="theme-selector">
+                <a href="#" id="theme-button" class="options-style" style="display: none;">[theme]</a> <!-- fix at some point.. or don't. works decent without the dropdown'-->
+                <ul id="theme-options">
+                    <a href="#" class="options-style" id="auto-button">> [time-based]</a>
+                    <a href="#" class="options-style" id="day-button">[day]</a>
+                    <a href="#" class="options-style" id="night-button">[night]</a>
+                </ul>
+            </div>
 
-        <div class="theme-selector">
-            <a href="#" id="theme-button" class="options-style" style="display: none;">[theme]</a> <!-- fix at some point.. or don't. works decent without the dropdown'-->
-            <ul id="theme-options">
-                <a href="#" class="options-style" id="auto-button">> [time-based]</a>
-                <a href="#" class="options-style" id="day-button">[day]</a>
-                <a href="#" class="options-style" id="night-button">[night]</a>
-            </ul>
-        </div>
-
-        <pre>
+            <pre>
       __     
    _    )⌐   
  (        )
@@ -23,21 +23,26 @@
   \┐ \ ┐\°   
   . \  \     
       ° .         
-        </pre>
+            </pre>
 
-        <a href="#" id="edit" class="options-style">[edit]</a>
+            <a href="#" id="edit" class="options-style">[edit]</a>
 
-        <ul id="main-list">
-            <li id="datetime"></li>
-        </ul>
+            <ul id="date-time-ul">
+                <li id="datetime"></li>
+            </ul>
 
-        <ul>
-            <li style="padding-top: 10px;">
-                <center>
-                    <a href="#" id="addNewLink" class="options-style">[+]</a>
-                </center>
-            </li>
-        </ul>
+            <ul id="main-list">
+                <!-- links go here -->
+            </ul>
+
+            <ul>
+                <li style="padding-top: 10px;">
+                    <center>
+                        <a href="#" id="addNewLink" class="options-style">[+]</a>
+                    </center>
+                </li>
+            </ul>
+        </div>
 
         <script src="js/update-date-time.js"></script>
         <script>
@@ -99,7 +104,7 @@
         </script>
 
         <script>
-            // animate the ascii art? 
+            // animate the ascii art?
         </script>
 
         <script src="js/list-item.js"></script>
