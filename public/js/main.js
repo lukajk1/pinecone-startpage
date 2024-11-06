@@ -13,9 +13,6 @@ function initialize() {
     const mainList = document.getElementById('main-list');
 
     serverLoadLinks();
-
-    //links.push(new ListItem("youtube", "https://www.youtube.com/"));
-    //links.push(new ListItem("github", "https://github.com/lukajk1"));
 }
 
 function toggleEditMode() {
@@ -47,6 +44,18 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* =================================== server functions =================================== */
+
+function serverLoadLinks() {
+    fetch('/api/links')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(link => {
+                links.push(new ListItem(link.siteTitle, link.siteURL, links));
+            });
+        })
+        .catch(error => console.error('Error loading links:', error));
+}
+
 function serverSaveLinks() {
     // Clear the JSON file before saving new links
     fetch('/api/links/clear', {
@@ -55,34 +64,28 @@ function serverSaveLinks() {
             'Content-Type': 'application/json',
         }
     })
-        .then(() => {
-            // Save each link individually after clearing
-            links.forEach(link => {
-                fetch('/api/links', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(link), // Serialize each object individually
-                })
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log('Link saved:', data);
-                    })
-                    .catch(error => console.error('Error saving link:', error));
-            });
+
+    .then(() => {
+        const plainLinks = links.map(link => ({
+            siteTitle: link.siteTitle,
+            siteURL: link.siteURL
+        }));
+
+        fetch('/api/links/bulkSave', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(plainLinks),
         })
-        .catch(error => console.error('Error clearing links:', error));
+            .then(response => response.json())
+            .then(data => {
+                console.log('All links saved:', data);
+            })
+            .catch(error => console.error('Error saving links:', error));
+    })
+    .catch(error => console.error('Error clearing links:', error));
 }
 
-function serverLoadLinks() {
-    fetch('/api/links')
-        .then(response => response.json())
-        .then(data => {
-            data.forEach(link => {
-                links.push(new ListItem(link.name, link.url));
-            });
-        })
-        .catch(error => console.error('Error loading links:', error));
-}
+
 

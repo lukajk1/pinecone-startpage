@@ -22,8 +22,6 @@ class ListItem {
         this.inputSiteName.value = siteTitle;
         this.inputSiteURL = this.li.querySelector('input[name="siteURL"]');
         this.inputSiteURL.value = siteURL;
-
-
     }
 
     initLink() {
@@ -126,21 +124,32 @@ class ListItem {
     }
 
     delete() {
-        if (
-            (this.siteTitle === "" && this.siteURL === "")
-        ) {
-            this.li.remove();
+        if ((this.siteTitle === "" && this.siteURL === "") ||
+            (this.siteTitle === "unnamed link" && this.siteURL === "")) {
+            this.removeSelf();
         }
+
         else {
             const confirmed = confirm("Confirm delete?");
 
-        if (confirmed) {
+            if (confirmed) {
 
-                this.li.remove();
+                this.removeSelf();
             }
+
             else {
                 return; 
             }
+
+        }
+    }
+
+    removeSelf() {
+        this.li.remove();
+
+        const index = this.linkArray.indexOf(this);
+        if (index !== -1) {
+            this.linkArray.splice(index, 1);
         }
     }
 }
