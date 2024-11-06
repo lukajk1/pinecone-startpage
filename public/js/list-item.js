@@ -1,9 +1,9 @@
 class ListItem {
     isEditMode = false;
-    constructor(siteTitle, siteURL) {
+    constructor(siteTitle, siteURL, linkArray) {
         this.siteTitle = siteTitle;
         this.siteURL = siteURL;
-        this.startpage = startpage;
+        this.linkArray = linkArray;
 
         this.li = document.createElement('li');
         this.mainList = document.getElementById('main-list');
@@ -22,6 +22,7 @@ class ListItem {
         this.inputSiteName.value = siteTitle;
         this.inputSiteURL = this.li.querySelector('input[name="siteURL"]');
         this.inputSiteURL.value = siteURL;
+
 
     }
 
@@ -48,14 +49,37 @@ class ListItem {
     initEditOptions() {
         const editOptionsHTML = `
             <span class='edit-options' style="display:none; position: relative; top: -48px;">
-                <a href='#' class='options-style'id='delete'>[-]</a>
+                <a href='#' class='options-style' id='up'>[up]</a>
+                <a href='#' class='options-style' id='down'>[down]</a>
+                <a href='#' class='options-style'id='delete'>[del]</a>
             </span>
         `;
 
         this.li.insertAdjacentHTML('beforeend', editOptionsHTML);
 
-        //this.li.querySelector('#save').addEventListener('click', () => this.toggleEditMode());
         this.li.querySelector('#delete').addEventListener('click', () => this.delete());
+        this.li.querySelector('#up').addEventListener('click', () => this.moveUp());
+        this.li.querySelector('#down').addEventListener('click', () => this.moveDown());
+    }
+
+    moveUp() {
+        const index = this.linkArray.indexOf(this);
+        const previous = this.li.previousElementSibling;
+
+        if (index > 0) {
+            [this.linkArray[index - 1], this.linkArray[index]] = [this.linkArray[index], this.linkArray[index - 1]];
+            this.mainList.insertBefore(this.li, previous);
+        }
+    }
+
+    moveDown() {
+        const index = this.linkArray.indexOf(this);
+        const next = this.li.nextElementSibling;
+
+        if (index < links.length - 1) {
+            [this.linkArray[index], this.linkArray[index + 1]] = [this.linkArray[index + 1], this.linkArray[index]];
+            this.mainList.insertBefore(next, this.li);
+        }
     }
 
     setFieldsDisplay(show) {
@@ -118,12 +142,5 @@ class ListItem {
                 return; 
             }
         }
-    }
-}
-
-
-class startpage {
-    constructor(mainList) {
-        this.mainList = mainList;
     }
 }
